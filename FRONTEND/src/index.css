@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl;
+  }
+
+  .glass-card-hover {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl
+           hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(59, 130, 246, 0.05);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15), 0 0 40px rgba(16, 185, 129, 0.05);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.15), 0 0 40px rgba(239, 68, 68, 0.05);
+  }
+
+  .bg-radial-glow {
+    background:
+      radial-gradient(ellipse 80% 50% at 70% -20%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-white/5 rounded-lg;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-white text-zinc-950 font-medium rounded-xl
+           hover:bg-zinc-200 active:scale-[0.98] transition-all duration-200;
+  }
+
+  .btn-accent {
+    @apply px-6 py-3 bg-accent-blue text-white font-medium rounded-xl
+           hover:bg-blue-600 active:scale-[0.98] transition-all duration-200
+           shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-zinc-400 font-medium rounded-xl
+           hover:bg-white/5 hover:text-zinc-200 transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10
+           text-white placeholder-zinc-500
+           focus:outline-none focus:ring-1 focus:ring-white/20 focus:border-white/20
+           transition-all duration-200;
+  }
+}
